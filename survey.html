@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Survey - Redwood Current</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F1E8;
+            color: #2B2520;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 16px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo img {
+            max-width: 250px;
+            height: auto;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border: 1px solid #C1351D;
+            border-radius: 10px;
+            padding: 40px 32px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #2B2520;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #2B2520;
+            font-size: 16px;
+            margin-bottom: 32px;
+            opacity: 0.8;
+        }
+
+        .question {
+            margin-bottom: 28px;
+        }
+
+        .question label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #2B2520;
+        }
+
+        .question input[type="text"],
+        .question input[type="email"],
+        .question select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #C1351D;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            background: #F5F1E8;
+            color: #2B2520;
+        }
+
+        .question input:focus,
+        .question select:focus {
+            outline: none;
+            border-color: #E6B84D;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 1px solid #C1351D;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            background: #F5F1E8;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #E6B84D;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #E6B84D;
+            color: #2B2520;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .privacy-note {
+            text-align: center;
+            font-size: 14px;
+            color: #2B2520;
+            opacity: 0.7;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/34965fbd-1996-4da2-ba45-3d552b394b82/Beehiiv_logo__1000_x_236_px_.png" alt="Redwood Current">
+        </div>
+
+        <div class="card">
+            <h1>Help us personalize your experience</h1>
+            <p class="subtitle">Answer a few quick questions so we can tailor content to your interests</p>
+
+            <form id="surveyForm">
+                <div class="question">
+                    <label for="name">What's your first name?</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="question">
+                    <label>What brings you to Redwood Current?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="interest" value="local-news" required>
+                            <span>Stay updated on local news</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="interest" value="events">
+                            <span>Find community events</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="interest" value="both">
+                            <span>Both news and events</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label for="location">Which area are you most interested in?</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select an area</option>
+                        <option value="redwood-falls">Redwood Falls</option>
+                        <option value="belview">Belview</option>
+                        <option value="morton">Morton</option>
+                        <option value="lower-sioux">Lower Sioux Community</option>
+                        <option value="all">All areas</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <label>How often would you like to hear from us?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="frequency" value="weekly" required>
+                            <span>Weekly (recommended)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="frequency" value="important">
+                            <span>Only important updates</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Responses</button>
+            </form>
+
+            <p class="privacy-note">Your responses help us serve you better. We never share your information.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                interest: document.querySelector('input[name="interest"]:checked').value,
+                location: document.getElementById('location').value,
+                frequency: document.querySelector('input[name="frequency"]:checked').value
+            };
+            
+            // Store in memory (in a real implementation, you'd send this to a server)
+            sessionStorage.setItem('surveyData', JSON.stringify(formData));
+            
+            // Redirect to recommendations page
+            window.location.href = 'recommendations.html';
+        });
+    </script>
+</body>
+</html>
